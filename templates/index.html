@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <nav class="bg-green-700 text-white shadow-md">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <a
+          href="{{ url_for('main') }}"
+          class="flex items-center space-x-3 rtl:space-x-reverse"
+        >
+          <img
+            src="../static/logo-removebg-preview.png"
+            class="h-10"
+            alt="ScanRice Logo"
+          />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap"
+            >ScanRice</span
+          >
+        </a>
+        <button
+          id="navbar-toggle"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Buka menu utama</span>
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
+          >
+            <li>
+              <a
+                href="{{ url_for('klasifikasi') }}"
+                class="block py-2 px-3 rounded hover:bg-green-600 md:hover:bg-transparent md:border-0 md:hover:text-green-200 md:p-0 transition duration-300"
+                >Klasifikasi</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{ url_for('penyakit') }}"
+                class="block py-2 px-3 rounded hover:bg-green-600 md:hover:bg-transparent md:border-0 md:hover:text-green-200 md:p-0 transition duration-300"
+                >Penyakit</a
+              >
+            </li>
+            <li>
+              <a
+                href="{{ url_for('tentang') }}"
+                class="block py-2 px-3 rounded hover:bg-green-600 md:hover:bg-transparent md:border-0 md:hover:text-green-200 md:p-0 transition duration-300"
+                >Tentang</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="flex flex-col items-center justify-center min-h-screen bg-gray-50"
+    >
+      <div class="text-center">
+        <img
+          src="../static/farmer-man_961307-52243.avif"
+          alt="Hero Image"
+          class="mx-auto h-64 rounded-2xl"
+        />
+        <h1 class="mt-6 text-4xl font-bold text-gray-800">
+          Klasifikasi Penyakit Daun Padi
+        </h1>
+        <p class="text-xl text-gray-600 mb-6 mt-3">
+          Deteksi Dini untuk Pengelolaan Tanaman yang Lebih Baik
+        </p>
+        <a
+          href="{{ url_for('klasifikasi') }}"
+          class="inline-block px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition duration-300 ease-in-out shadow-md"
+        >
+          Periksa Daun Padi di Lahan Anda
+        </a>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navbarToggle = document.getElementById("navbar-toggle");
+        const navbarDefault = document.getElementById("navbar-default");
+
+        navbarToggle.addEventListener("click", function () {
+          navbarDefault.classList.toggle("hidden");
+        });
+      });
+    </script>
+    <footer class="text-center mt-8 text-sm text-gray-500">
+      <p>&copy; 2024 Aplikasi Klasifikasi Penyakit Daun Padi</p>
+    </footer>
+  </body>
+</html>
